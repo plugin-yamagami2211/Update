@@ -1,0 +1,4 @@
+name: UpdateChecker
+version: ${project.version}
+main: jp.yama2211.update.Main
+api-version: 1.16
