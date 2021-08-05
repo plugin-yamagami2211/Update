@@ -20,7 +20,7 @@ public class UpdateCheck {
     }
 
 
-    public String[] getVersion() {
+    public String getVersion() {
         try{
             StringBuilder result = new StringBuilder();
 
@@ -40,12 +40,7 @@ public class UpdateCheck {
             ObjectMapper mapper = new ObjectMapper();
             JsonNode root = mapper.readTree(result.toString());
 
-
-            String[] version = new String[2];
-            version[0] = root.get("Version").asText();
-            version[1] = root.get("Message").asText();
-
-            return version;
+            return root.get("Version").asText();
         }
         catch (Exception err){
             return null;

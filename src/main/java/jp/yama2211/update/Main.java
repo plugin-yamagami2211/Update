@@ -1,10 +1,8 @@
 package jp.yama2211.update;
 
-import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.util.Iterator;
-import java.util.List;
+import java.nio.charset.StandardCharsets;
 import java.util.Objects;
 
 public final class Main extends JavaPlugin {
@@ -26,15 +24,13 @@ public final class Main extends JavaPlugin {
         if(getConfig().getBoolean("Update2")){
         UpdateCheck updateCheck = new UpdateCheck("Update");
         String nowVer = getDescription().getVersion();
-        String[] version = updateCheck.getVersion();
+        String version = updateCheck.getVersion();
 
-        String ver = Objects.requireNonNull(version)[0];
-        String msg = Objects.requireNonNull(version)[1];
-
-        if(ver == null){
+        if(version == null){
             getLogger().warning("アップデート情報の取得に失敗しました。");
-        } else if(!nowVer.equals(ver)){
-            getLogger().warning("利用可能なアップデートがあります。\n" + msg);
+        } else if(!nowVer.equals(version)){
+            getLogger().warning("利用可能なアップデートがあります。");
+            getLogger().info("配布フォーラムをご確認ください。リンク:https://ym21.ml/amc4e");
         }
 
         }
