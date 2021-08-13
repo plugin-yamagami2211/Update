@@ -3,7 +3,7 @@ package jp.yama2211.update;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.nio.charset.StandardCharsets;
-import java.util.Objects;
+
 
 public final class Main extends JavaPlugin {
 
@@ -12,7 +12,6 @@ public final class Main extends JavaPlugin {
     @Override
     public void onEnable() {
         // Plugin startup logic
-        saveDefaultConfig();
         if(getConfig().getBoolean("Update1")){
             new UpdateChecker(this,"PlayerFly").getVersion(version -> {
                 if (!this.getDescription().getVersion().equalsIgnoreCase(version)) {
