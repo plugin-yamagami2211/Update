@@ -2,7 +2,6 @@ package jp.yama2211.update;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.nio.charset.StandardCharsets;
 
 
 public final class Main extends JavaPlugin {
@@ -24,12 +23,19 @@ public final class Main extends JavaPlugin {
         UpdateCheck updateCheck = new UpdateCheck("Update");
         String nowVer = getDescription().getVersion();
         String version = updateCheck.getVersion();
+        //String message = updateCheck.getMessage();
 
         if(version == null){
             getLogger().warning("アップデート情報の取得に失敗しました。");
         } else if(!nowVer.equals(version)){
             getLogger().warning("利用可能なアップデートがあります。");
             getLogger().info("配布フォーラムをご確認ください。リンク:https://ym21.ml/amc4e");
+            //getLogger().info(message);
+
+            /*
+             * メッセージ取得関係のスクリプトの準備がまだ。
+             * PHPで実装予定。
+             * */
         }
 
         }
